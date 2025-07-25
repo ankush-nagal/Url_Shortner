@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Signup</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #10b981;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #059669;
+        }
+
+        .link-text {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .link-text a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .link-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Signup</h1>
+        <% if (typeof error !=='undefined' ) { %>
+            <p style="color: red; text-align: center;">
+                <%= error %>
+            </p>
+            <% } %>
+
+
+                <form action="/user" method="post">
+                    <label>Full Name:</label>
+                    <input type="text" name="name" required />
+
+                    <label>Email:</label>
+                    <input type="email" name="email" required />
+
+                    <label>Password:</label>
+                    <input type="password" name="password" required />
+
+                    <button type="submit">Signup</button>
+                </form>
+
+                <div class="link-text">
+                    <p>Already have an account? <a href="/login">Login here</a></p>
+                </div>
+    </div>
+
+</body>
+
+</html>
