@@ -1,7 +1,10 @@
 const express = require("express")
 const path = require('path')
 const cookieParser = require("cookie-parser")
+
+require('dotenv').config();
 const { connectToMongoDB } = require("./connect") 
+
 const {restrictToLoggedinUserOnly, checkAuth} = require("./middlewares/auth")
 
 const URL = require('./models/url')
@@ -13,11 +16,13 @@ const userRoute = require("./routes/user")
 
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+connectToMongoDB(process.env.MONGO_URL);
 
 
-connectToMongoDB("mongodb://127.0.0.1:27017/short_url")
-    .then(() => { console.log("Mongodb connected") })
+
+// connectToMongoDB("mongodb://127.0.0.1:27017/short_url")
+//     .then(() => { console.log("Mongodb connected") })
 
 app.set("view engine", "ejs")
 app.set("views", path.resolve("./views"))

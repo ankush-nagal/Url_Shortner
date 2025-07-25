@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: altus-url-shortener
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://mongodb+srv://ankushnagal:Ankush123@cluster0.6e02j8k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - key: PORT
+        value: 3001
